@@ -1,61 +1,23 @@
 import assert from "node:assert";
+import { Divide } from "./Divide";
+import { Multiply } from "./Multiply";
+import { Node } from "./Node";
+import { Subtract } from "./Subtract";
+import { Sum } from "./Sum";
+import { Value } from "./Value";
 
-const Node = (operator, value, left, right) => {
-    const result = function () {
-        switch (operator) {
-        case "+":
-            return left.result() + right.result();
-        case "-":
-            return left.result() - right.result();
-        case "x":
-            return left.result() * right.result();
-        case "÷":
-            return left.result() / right.result();
-        default:
-            return value;
-        }
-    };
-
-    const toString = function () {
-        switch (operator) {
-        case "+":
-            return `(${left.toString()} + ${right.toString()})`;
-        case "-":
-            return `(${left.toString()} - ${right.toString()})`;
-        case "x":
-            return `(${left.toString()} x ${right.toString()})`;
-        case "÷":
-            return `(${left.toString()} ÷ ${right.toString()})`;
-        default:
-            return value.toString();
-        }
-    };
-
-    return {
-        operator,
-        value,
-        left,
-        right,
-        result,
-        toString
-    };
-};
-
-const tree = Node(
-    "÷",
-    null,
-    Node(
-        "+",
-        null,
-        Node("", 7, null, null),
-        Node(
-            "x",
-            null,
-            Node("-", null, Node("", 3, null, null), Node("", 2, null, null)),
-            Node("", 5, null, null)
+const tree = new Divide(
+    new Sum(
+        new Value(7),
+        new Multiply(
+            new Subtract(
+                new Value(3), 
+                new Value(2)
+            ),
+            new Value(5)
         )
     ),
-    Node("", 6, null, null)
+    new Value(6)
 );
 
 assert.strictEqual("((7 + ((3 - 2) x 5)) ÷ 6)", tree.toString());

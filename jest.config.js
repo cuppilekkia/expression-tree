@@ -5,7 +5,7 @@ module.exports = {
     collectCoverage: true,
     collectCoverageFrom: [
         "**/src/**/*.ts",
-        "!**/src/example.ts",
+        "!**/src/index.ts",
         "!**/node_modules/**",
     ],
 };
