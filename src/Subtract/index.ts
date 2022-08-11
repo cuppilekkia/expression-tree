@@ -1,13 +1,21 @@
-import { Node } from "../Node";
-import { NodeInterface } from "../node.interface";
+import { NodeAbstract } from "../NodeAbstract";
+import { NodeInterface } from "../NodeAbstract/node.interface";
 
-export class Subtract extends Node {
+export class Subtract extends NodeAbstract {
     constructor(left: NodeInterface, right: NodeInterface) {
         super(
-            Node.TYPE.SUB,
+            NodeAbstract.TYPE.SUB,
             null,
             left,
             right,
         );
+    }
+
+    result(): number {
+        return this.left.result() - this.right.result();
+    }
+
+    toString(): string {
+        return `(${this.left.toString()} ${NodeAbstract.TYPE.SUB} ${this.right.toString()})`;
     }
 }

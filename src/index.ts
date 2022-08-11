@@ -1,7 +1,6 @@
 import assert from "node:assert";
 import { Divide } from "./Divide";
 import { Multiply } from "./Multiply";
-import { Node } from "./Node";
 import { Subtract } from "./Subtract";
 import { Sum } from "./Sum";
 import { Value } from "./Value";
@@ -23,4 +22,4 @@ const tree = new Divide(
 assert.strictEqual("((7 + ((3 - 2) x 5)) ÷ 6)", tree.toString());
 assert.strictEqual(2, tree.result());
 
-export { Node, tree };
+export { tree };
