@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run clear && tsc && node dist/example.js",
+    "start": "npm run clear && tsc && node dist/index.js",
     "clear": "rm -rf ./dist",
     "lint": "eslint . --ext .ts",
     "test": "jest --runInBand --colors --verbose",
