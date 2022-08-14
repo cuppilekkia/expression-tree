@@ -15,19 +15,16 @@ Install the dependencies:
 npm i
 ```
 
-The algorithm is implemented in `src/index.ts`
-
-
 ## Example
 
-An implementation example is in `src/example.ts` and it can be run with the command:
+An implementation example is in `src/index.ts` and it can be run with the command:
 ```sh
 npm run start
 ```
 
 ## Test suite
 
-The complete test suite is in `test/index.spec.ts`. 
+The complete test suite is in `test/**.spec.ts`, providing coverage for the Node classes.
 
 Run all the tests with:
 ```sh
